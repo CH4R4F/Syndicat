@@ -3,7 +3,7 @@ import React from 'react';
 const Input = ({ type, name, id, placeholder, value, onChange, Icon = false }) => {
   return (
     <div>
-      <label htmlFor={id} class="sr-only">
+      <label htmlFor={id} className="sr-only">
         {name}
       </label>
       <div className="relative">
