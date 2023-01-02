@@ -2,18 +2,25 @@ version: '3'
 services:
   mongodb:
     image: mongo
+    restart: always
     ports:
       - 27018:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: CMarghin
-      MONGO_INITDB_ROOT_PASSWORD: cmarghin123
+    volumes:
+      - mongodb_data:/data/db
     container_name: mongodb
+
   backend:
     build: ./server/
     ports:
       - 5000:5000
+    depends_on:
+      - mongodb
     container_name: server
     env_file:
       - ./server/.env
     volumes:
       - ./server/:/server/
+
+volumes:
+  mongodb_data:
+    driver: local
