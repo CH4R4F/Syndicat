@@ -6,7 +6,6 @@ const Input = ({ type, name, id, placeholder, value, onChange, Icon = false }) =
       <label htmlFor={id} class="sr-only">
         {name}
       </label>
-      for
       <div class="relative">
         <input
           type={type}
