@@ -4,7 +4,13 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const initDB = require('./config/initDB');
 require('dotenv').config();
+
+// initialize the database
+(async () => {
+  await initDB();
+})();
 
 const app = express();
 app.use(
