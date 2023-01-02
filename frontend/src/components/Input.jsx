@@ -6,19 +6,19 @@ const Input = ({ type, name, id, placeholder, value, onChange, Icon = false }) =
       <label htmlFor={id} class="sr-only">
         {name}
       </label>
-      <div class="relative">
+      <div className="relative">
         <input
           type={type}
           name={name}
           id={id}
-          class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+          className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
           placeholder={placeholder}
           value={value}
           onChange={onChange}
         />
 
         {Icon && (
-          <span class="absolute inset-y-0 right-4 inline-flex items-center">
+          <span className="absolute inset-y-0 right-4 inline-flex items-center">
             <Icon />
           </span>
         )}
