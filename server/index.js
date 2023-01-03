@@ -13,12 +13,7 @@ require('dotenv').config();
 })();
 
 const app = express();
-app.use(
-  cors({
-    origin: '*',
-    credentials: true,
-  })
-);
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -28,7 +23,7 @@ const logs = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: '
 app.use(morgan('combined', { stream: logs }));
 
 // Routes
-// TODO: Add routes
+app.use('/', require('./routes/'));
 
 // Error handling
 // TODO: Add error handling
