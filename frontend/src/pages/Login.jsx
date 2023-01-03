@@ -1,16 +1,29 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import AuthContext from '../context/AuthProvider';
 import { login } from '../utils/api';
 import Input from '../components/Input';
 import emailIcon from '../assets/icons/email.jsx';
 import lockIcon from '../assets/icons/lock.jsx';
 import loginCover from '../assets/images/login-cover.jpg';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import useAuth from '../hooks/useAuth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const { auth, setAuth } = useContext(AuthContext);
+
+  useAuth();
+
+  useEffect(() => {
+    console.log(auth);
+    if (auth) {
+      navigate('/');
+    }
+  }, [auth]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +41,7 @@ const Login = () => {
     try {
       const response = await login(email, password);
       console.log(response);
-      return navigate('/');
+      setAuth(true);
     } catch (error) {
       console.log(error);
       setError(error.response.data.message);

@@ -9,4 +9,9 @@ const login = async (email, password) => {
   return response.data;
 };
 
-export { login };
+const verify = async () => {
+  const response = await axios.get('/auth/');
+  return response.data;
+};
+
+export { login, verify };
