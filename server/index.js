@@ -26,7 +26,7 @@ app.use(morgan('combined', { stream: logs }));
 app.use('/', require('./routes/'));
 
 // Error handling
-// TODO: Add error handling
+app.use(require('./middlewares/errorHandler'));
 
 // Start server
 const PORT = process.env.PORT || 5000;

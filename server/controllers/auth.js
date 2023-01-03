@@ -22,7 +22,7 @@ const login = async (req, res, next) => {
     // check if admin exists
     const admin = await Admin.findOne({ email });
     if (!admin) {
-      error = new Error('Admin does not exist');
+      error = new Error('Invalid credentials');
       throw error;
     }
 
