@@ -26,10 +26,11 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await login({ email, password });
+      const response = await login(email, password);
       console.log(response);
-      return navigate('/dashboard');
+      return navigate('/');
     } catch (error) {
+      console.log(error);
       setError(error.response.data.message);
     }
   };
@@ -46,14 +47,13 @@ const Login = () => {
           </p>
         </div>
 
-        {error && (
-          <div className="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-            <strong className="font-bold">Error!</strong>
-            <span className="block sm:inline">{error}</span>
-          </div>
-        )}
-
         <form onSubmit={handleSubmit} className="mx-auto mt-8 mb-0 max-w-md space-y-4">
+          {error && (
+            <div className="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+              <strong className="font-bold">Error! &nbsp; &nbsp; &nbsp;</strong>
+              <span className="block sm:inline">{error}</span>
+            </div>
+          )}
           <Input
             type="email"
             placeholder="Enter email"
