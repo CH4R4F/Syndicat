@@ -4,10 +4,7 @@ const apartmentSchema = new mongoose.Schema({
   number: {
     type: Number,
     required: true,
-  },
-  floor: {
-    type: Number,
-    required: true,
+    unique: true,
   },
   building: {
     type: mongoose.Schema.Types.ObjectId,
@@ -20,6 +17,7 @@ const apartmentSchema = new mongoose.Schema({
   status: {
     type: String,
     enum: ['vacant', 'occupied'],
+    default: 'vacant',
   },
 });
 
