@@ -8,4 +8,4 @@ CMD ["yarn", "dev"]
 # ====== production ===========
 # CMD ["yarn", "start"]
 # ====== testing =========
-# CMD ['yarn', 'test']
+# CMD ["yarn", "test", "--colors"]
