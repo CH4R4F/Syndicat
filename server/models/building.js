@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const buildingSchema = new mongoose.Schema({
-  number: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
   name: {
     type: String,
     required: true,
