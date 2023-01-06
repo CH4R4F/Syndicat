@@ -10,10 +10,6 @@ const getAllApartments = async (req, res, next) => {
   try {
     const apartments = await Apartment.find().populate('building').populate('tenant');
 
-    if (!apartments) {
-      throw new Error('No apartments found');
-    }
-
     res.status(200).json({
       success: true,
       apartments,

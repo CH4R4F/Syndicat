@@ -10,10 +10,6 @@ const getAllbuildings = async (req, res, next) => {
   try {
     const buildings = await Building.find();
 
-    if (!buildings) {
-      throw new Error('No buildings found');
-    }
-
     res.status(200).json({
       success: true,
       buildings,
