@@ -19,7 +19,6 @@ const Login = () => {
   useAuth();
 
   useEffect(() => {
-    console.log(auth);
     if (auth) {
       navigate('/');
     }
@@ -40,10 +39,8 @@ const Login = () => {
 
     try {
       const response = await login(email, password);
-      console.log(response);
       setAuth(true);
     } catch (error) {
-      console.log(error);
       setError(error.response.data.message);
     }
   };
