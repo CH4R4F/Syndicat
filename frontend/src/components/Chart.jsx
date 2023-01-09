@@ -9,6 +9,7 @@ export default function LineChart({ data, total }) {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Nov', 'Dec'],
         datasets: [
           {
+            label: 'Rents',
             borderColor: '#4A5568',
             data,
             fill: false,
