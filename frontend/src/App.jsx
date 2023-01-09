@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import { Login } from './pages';
+import { Login, Dashboard } from './pages';
 import AdminLayout from './layout/AdminLayout';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<AdminLayout />}>
-          <Route index element={<h1>Dashboard</h1>} />
+          <Route index element={<Dashboard />} />
           <Route path="apartments" element={<h1>Apartments</h1>} />
           <Route path="apartments/new" element={<h1>add apartment</h1>} />
           <Route path="tenants" element={<h1>Tenants</h1>} />
