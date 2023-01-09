@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Sidebar = () => {
   return (
     <div className="fixed z-30 left-0 top-0 h-screen shadow-lg lg:block w-80">
-      <div className="h-full bg-white rounded-2xl dark:bg-gray-700">
+      <div className="h-full bg-white dark:bg-gray-700">
         <div className="flex items-center justify-center pt-6">
           <img alt="app logo" src={logo} className="w-20 h-20" />
         </div>
