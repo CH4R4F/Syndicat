@@ -35,4 +35,36 @@ const deleteApartment = async (id) => {
   return response.data;
 };
 
-export { login, verify, getAllApartments, addApartment, updateApartment, deleteApartment };
+// ================== Buildings ====================
+const getAllBuildings = async () => {
+  const response = await axios.get('/buildings/');
+  return response.data;
+};
+
+const addBuilding = async (data) => {
+  const response = await axios.post('/buildings', date);
+  return response.data;
+};
+
+const updateBuilding = async (id, data) => {
+  const response = await axios.put(`/buildings/${id}`, data);
+  return response.data;
+};
+
+const deleteBuilding = async (id) => {
+  const response = await axios.delete(`/buildings/${id}`);
+  return response.data;
+};
+
+export {
+  login,
+  verify,
+  getAllApartments,
+  addApartment,
+  updateApartment,
+  deleteApartment,
+  getAllBuildings,
+  addBuilding,
+  updateBuilding,
+  deleteBuilding,
+};
