@@ -1,6 +1,6 @@
 # SYNDICAT
 
-syndicat is a wep app for managing the syndicate of a building, it provides a dashboard to manage the buildings, apartments, tenants, and payments.
+Syndicat is a web app for managing buildings and apartments, it provides a dashboard to manage the buildings, apartments, tenants, and payments.
 
 ## run the app
 
