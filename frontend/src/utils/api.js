@@ -42,7 +42,7 @@ const getAllBuildings = async () => {
 };
 
 const addBuilding = async (data) => {
-  const response = await axios.post('/buildings', date);
+  const response = await axios.post('/buildings', data);
   return response.data;
 };
 

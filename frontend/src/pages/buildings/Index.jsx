@@ -41,7 +41,7 @@ const Index = () => {
               <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">Number of floors</th>
               <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">Number of apartments</th>
 
-              <th colSpan="2" className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+              <th colSpan="2" className="text-center whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Actions
               </th>
             </tr>
@@ -59,8 +59,8 @@ const Index = () => {
                 <td className="px-4 py-2 whitespace-nowrap">{building.name}</td>
                 <td className="px-4 py-2 whitespace-nowrap">{building.address}</td>
                 <td className="px-4 py-2 whitespace-nowrap">{building.city}</td>
-                <td className="px-4 py-2 whitespace-nowrap">{building.floors}</td>
-                <td className="px-4 py-2 whitespace-nowrap">{building.apartments}</td>
+                <td className="px-4 py-2 whitespace-nowrap">{building.numberOfFloors}</td>
+                <td className="px-4 py-2 whitespace-nowrap">{building.numberOfApartments}</td>
 
                 <td className="whitespace-nowrap py-2 text-gray-900 text-center">
                   <Link to={`/buildings/${building._id}`}>
