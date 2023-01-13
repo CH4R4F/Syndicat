@@ -1,5 +1,5 @@
 const jwtChecker = require('../utils/jwtChecker');
-const Tenant = require('../models/user');
+const Admin = require('../models/admin');
 
 const protect = async (req, res, next) => {
   // get the token from the cookies
@@ -16,7 +16,7 @@ const protect = async (req, res, next) => {
     const { email } = jwtChecker(token); // by default throws the error if not a valid token
 
     // check if a user has the info in token
-    const user = await Tenant.findOne({ email });
+    const user = await Admin.findOne({ email });
 
     if (!user) {
       throw error;
