@@ -121,9 +121,32 @@ const removeApartment = async (req, res, next) => {
   }
 };
 
+/**
+ * @route /api/apartments/building/:id
+ * @method GET
+ * @access PRIVATE
+ * @description get all the apartments details by building id
+ */
+const getApartmentsByBuildingId = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const apartments = await Apartment.find({ building: id }).populate('building').populate('tenant');
+
+    res.status(200).json({
+      success: true,
+      apartments,
+    });
+  } catch (error) {
+    error.status = 400;
+    next(error);
+  }
+};
+
 module.exports = {
   getAllApartments,
   addApartment,
   updateApartment,
   removeApartment,
+  getApartmentsByBuildingId,
 };

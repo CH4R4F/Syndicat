@@ -21,6 +21,32 @@ const getAllbuildings = async (req, res, next) => {
 };
 
 /**
+ * @route /api/buildings/:id
+ * @method GET
+ * @access PRIVATE
+ * @description get a building by its id
+ */
+const getBuildingById = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const building = await Building.findById(id);
+
+    if (!building) {
+      throw new Error('No building is found');
+    }
+
+    res.status(200).json({
+      success: true,
+      building,
+    });
+  } catch (error) {
+    error.status = 404;
+    next(error);
+  }
+};
+
+/**
  * @route /api/buildings
  * @method POST
  * @access PRIVATE
@@ -131,6 +157,7 @@ const removeBuilding = async (req, res, next) => {
 
 module.exports = {
   getAllbuildings,
+  getBuildingById,
   addBuilding,
   updateBuilding,
   removeBuilding,

@@ -1,7 +1,13 @@
 const router = require('express').Router();
-const { getAllbuildings, addBuilding, updateBuilding, removeBuilding } = require('../../controllers/building');
+const {
+  getAllbuildings,
+  addBuilding,
+  updateBuilding,
+  removeBuilding,
+  getBuildingById,
+} = require('../../controllers/building');
 
 router.route('/').get(getAllbuildings).post(addBuilding);
-router.route('/:id').put(updateBuilding).delete(removeBuilding);
+router.route('/:id').get(getBuildingById).put(updateBuilding).delete(removeBuilding);
 
 module.exports = router;
