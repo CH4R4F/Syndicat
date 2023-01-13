@@ -5,3 +5,7 @@
 .active {
   @apply text-blue-500 border-r-4 border-blue-500 bg-gradient-to-r from-white to-blue-100 dark:from-gray-700 dark:to-gray-800;
 }
+
+.wrapper {
+  @apply max-w-6xl mx-auto px-6;
+}
