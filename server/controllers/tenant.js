@@ -72,7 +72,7 @@ const getTenantDetails = async (req, res, next) => {
       tenant,
     });
   } catch (error) {
-    error.status = 400;
+    error.status = 404;
     next(error);
   }
 };
