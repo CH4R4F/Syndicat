@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import { Login, Dashboard, Tenants, AddTenant } from './pages';
+import NotFound from './components/NotFound';
 import AdminLayout from './layout/AdminLayout';
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
           <Route path="payments/new" element={<h1>add payment</h1>} />
           <Route path="settings" element={<h1>Settings</h1>} />
         </Route>
-        <Route path="*" element={<h1>404</h1>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
