@@ -6,5 +6,6 @@ import TenantDetails from './tenants/TenantDetails';
 import Buildings from './buildings/Index';
 import AddBuilding from './buildings/AddBuilding';
 import BuildingDetails from './buildings/BuildingDetails';
+import Apartments from './apartments/Index';
 
-export { Login, Dashboard, Tenants, AddTenant, TenantDetails, Buildings, AddBuilding, BuildingDetails };
+export { Login, Dashboard, Tenants, AddTenant, TenantDetails, Buildings, AddBuilding, BuildingDetails, Apartments };

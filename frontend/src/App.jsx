@@ -1,6 +1,16 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import { Login, Dashboard, Tenants, AddTenant, TenantDetails, Buildings, AddBuilding, BuildingDetails } from './pages';
+import {
+  Login,
+  Dashboard,
+  Tenants,
+  AddTenant,
+  TenantDetails,
+  Buildings,
+  AddBuilding,
+  BuildingDetails,
+  Apartments,
+} from './pages';
 import NotFound from './components/NotFound';
 import AdminLayout from './layout/AdminLayout';
 
@@ -11,7 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="apartments" element={<h1>Apartments</h1>} />
+          <Route path="apartments" element={<Apartments />} />
           <Route path="apartments/new" element={<h1>add apartment</h1>} />
           <Route path="tenants" element={<Tenants />} />
           <Route path="tenants/new" element={<AddTenant />} />
