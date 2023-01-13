@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Input = ({ type, name, id, placeholder, value, onChange, Icon = false }) => {
+const Input = ({ type, name, id, placeholder, value, onChange, Icon = false, showLabel = false }) => {
   return (
     <div>
-      <label htmlFor={id} className="sr-only">
+      <label htmlFor={id} className={`${!showLabel && `sr-only`} font-bold text-black/40 mb-2`}>
         {name}
       </label>
       <div className="relative">
