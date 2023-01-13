@@ -72,20 +72,16 @@ const TenantDetails = () => {
         <div className="mt-4">
           <ul>
             <li>
-              <span>First Name: </span>
-              <span className="font-bold">{data.firstName}</span>
+              <span className="font-bold">First Name:</span> {data.firstName}
             </li>
             <li>
-              <span>Last Name: </span>
-              <span className="font-bold">{data.lastName}</span>
+              <span className="font-bold">Last Name:</span> {data.lastName}
             </li>
             <li>
-              <span>CIN: </span>
-              <span className="font-bold">{data.CIN}</span>
+              <span className="font-bold">CIN:</span> {data.CIN}
             </li>
             <li>
-              <span>Telephone: </span>
-              <span className="font-bold">{data.telephone}</span>
+              <span className="font-bold">Telephone:</span> {data.telephone}
             </li>
           </ul>
         </div>

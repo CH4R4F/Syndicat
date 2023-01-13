@@ -71,7 +71,7 @@ const BuildingDetails = () => {
 
   return (
     <div className="wrapper">
-      <h1>Building Details</h1>
+      <h1 className="text-2xl font-bold underline">Building Details</h1>
       <div className="mt-5">
         <ul>
           <li>
@@ -97,8 +97,8 @@ const BuildingDetails = () => {
     </div> */}
 
       <div className="mt-10">
-        <h1>Update Building</h1>
-        <form onSubmit={handleSubmit}>
+        <h1 className="text-2xl font-bold underline">Update Building</h1>
+        <form className="mt-6" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 gap-6">
             <Input
               showLabel={true}
