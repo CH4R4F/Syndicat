@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllTenants } from '../utils/api';
+import { getAllTenants } from '../../utils/api';
 
 const Tenants = () => {
   const [tenants, setTenants] = useState([]);
