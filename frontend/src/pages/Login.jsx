@@ -8,6 +8,7 @@ import loginCover from '../assets/images/login-cover.jpg';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
+import Button from '../components/Button';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -84,12 +85,7 @@ const Login = () => {
             onChange={handleChange}
           />
 
-          <button
-            type="submit"
-            className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-          >
-            Sign in
-          </button>
+          <Button type="submit" text="Sign In" />
         </form>
       </div>
 

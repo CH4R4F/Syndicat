@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllTenants, deleteTenant } from '../../utils/api';
+import Button from '../../components/Button';
 
 const Tenants = () => {
   const [tenants, setTenants] = useState([]);
@@ -32,7 +33,7 @@ const Tenants = () => {
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Tenants</h1>
         <Link to="/tenants/new">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Tenant</button>
+          <Button text="Add Tenant" />
         </Link>
       </div>
       {errors && (
@@ -70,9 +71,7 @@ const Tenants = () => {
                 <td className="whitespace-nowrap px-4 py-2 text-gray-900">{tenant.telephone}</td>
                 <td className="whitespace-nowrap py-2 text-gray-900 text-center">
                   <Link to={`/tenants/${tenant._id}`}>
-                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                      Edit
-                    </button>
+                    <Button text="Edit" />
                   </Link>
                 </td>
                 <td className="whitespace-nowrap py-2 text-gray-900 text-center">

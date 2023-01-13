@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { addTenant } from '../../utils/api';
 
@@ -64,10 +65,7 @@ const AddTenant = () => {
             id="telephone"
             placeholder="Phone"
           />
-
-          <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Add Tenant
-          </button>
+          <Button type="submit" text="Add Tenant" />
         </div>
       </form>
     </div>
