@@ -76,6 +76,12 @@ const deleteTenant = async (id) => {
   const response = await axios.delete(`/tenants/${id}`);
   return response.data;
 };
+
+const getTenantById = async (id) => {
+  const response = await axios.get(`/tenants/${id}`);
+  return response.data;
+};
+
 export {
   login,
   verify,
@@ -89,6 +95,7 @@ export {
   deleteBuilding,
   getAllTenants,
   addTenant,
+  getTenantById,
   updateTenant,
   deleteTenant,
 };
