@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Input from '../../components/Input';
 import { getTenantById, updateTenant } from '../../utils/api';
 import { Oval } from 'react-loader-spinner';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import NotFound from '../../components/NotFound';
 
 const TenantDetails = () => {
@@ -16,6 +16,7 @@ const TenantDetails = () => {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setData({
@@ -26,7 +27,12 @@ const TenantDetails = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(data);
+    try {
+      await updateTenant(id, data);
+      navigate('/tenants');
+    } catch (error) {
+      setErrors(error.response?.data?.message);
+    }
   };
 
   // get tenants informations
