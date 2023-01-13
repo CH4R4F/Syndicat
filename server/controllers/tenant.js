@@ -62,7 +62,7 @@ const getTenantDetails = async (req, res, next) => {
   const { id } = req.params;
 
   try {
-    const tenant = await User.find({ _id: id });
+    const tenant = await User.findOne({ _id: id });
     if (!tenant) {
       throw new Error('tenant not found');
     }
