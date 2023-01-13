@@ -86,7 +86,9 @@ const Index = () => {
                     </span>
                   )}
                 </td>
-                <td className="px-4 py-2 whitespace-nowrap">{apartment.tenant ? apartment.tenant.name : 'N/A'}</td>
+                <td className="px-4 py-2 whitespace-nowrap">
+                  {apartment.tenant ? apartment.tenant.firstName + ' ' + apartment.tenant.lastName : 'N/A'}
+                </td>
                 <td className="px-4 py-2 whitespace-nowrap text-center text-sm font-medium">
                   <Link to={`/apartments/${apartment._id}`}>
                     <Button text="View" />

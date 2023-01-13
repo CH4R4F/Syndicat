@@ -10,6 +10,7 @@ import {
   AddBuilding,
   BuildingDetails,
   Apartments,
+  AddApartment,
 } from './pages';
 import NotFound from './components/NotFound';
 import AdminLayout from './layout/AdminLayout';
@@ -22,7 +23,7 @@ function App() {
         <Route path="/" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="apartments" element={<Apartments />} />
-          <Route path="apartments/new" element={<h1>add apartment</h1>} />
+          <Route path="apartments/new" element={<AddApartment />} />
           <Route path="tenants" element={<Tenants />} />
           <Route path="tenants/new" element={<AddTenant />} />
           <Route path="tenants/:id" element={<TenantDetails />} />
