@@ -35,9 +35,19 @@ const deleteApartment = async (id) => {
   return response.data;
 };
 
+const getApartmentsByBuildingId = async (id) => {
+  const response = await axios.get(`/apartments/building/${id}`);
+  return response.data;
+};
+
 // ================== Buildings ====================
 const getAllBuildings = async () => {
   const response = await axios.get('/buildings/');
+  return response.data;
+};
+
+const getBuildingById = async (id) => {
+  const response = await axios.get(`/buildings/${id}`);
   return response.data;
 };
 
@@ -86,10 +96,12 @@ export {
   login,
   verify,
   getAllApartments,
+  getApartmentsByBuildingId,
   addApartment,
   updateApartment,
   deleteApartment,
   getAllBuildings,
+  getBuildingById,
   addBuilding,
   updateBuilding,
   deleteBuilding,

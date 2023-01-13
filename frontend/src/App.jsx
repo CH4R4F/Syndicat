@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
-import { Login, Dashboard, Tenants, AddTenant, TenantDetails, Buildings, AddBuilding } from './pages';
+import { Login, Dashboard, Tenants, AddTenant, TenantDetails, Buildings, AddBuilding, BuildingDetails } from './pages';
 import NotFound from './components/NotFound';
 import AdminLayout from './layout/AdminLayout';
 
@@ -18,7 +18,7 @@ function App() {
           <Route path="tenants/:id" element={<TenantDetails />} />
           <Route path="buildings" element={<Buildings />} />
           <Route path="buildings/new" element={<AddBuilding />} />
-          <Route path="buildings/:id" element={<h1>building details</h1>} />
+          <Route path="buildings/:id" element={<BuildingDetails />} />
           <Route path="payments" element={<h1>Payments</h1>} />
           <Route path="payments/new" element={<h1>add payment</h1>} />
           <Route path="settings" element={<h1>Settings</h1>} />
