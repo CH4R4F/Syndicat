@@ -21,8 +21,9 @@ const Index = () => {
 
   async function handleDelete(id) {
     try {
+      console.log(id);
       await deleteApartment(id);
-      setApartments(apartments.filter((apartment) => apartment._id !== id));
+      setApartments(apartments.filter((apartment) => apartment.number !== id));
     } catch (error) {
       setErrors(error.response.data?.message);
     }
@@ -96,7 +97,7 @@ const Index = () => {
                 </td>
                 <td className="px-4 py-2 whitespace-nowrap text-center text-sm font-medium">
                   <button
-                    onClick={() => handleDelete(tenant._id)}
+                    onClick={() => handleDelete(apartment.number)}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                   >
                     Delete
