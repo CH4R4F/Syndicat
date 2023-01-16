@@ -21,6 +21,32 @@ const getAllPayments = async (req, res, next) => {
 };
 
 /**
+ * @route api/payment/:id
+ * @method GET
+ * @access PRIVATE
+ * @description get payment by id
+ */
+const getPaymentById = async (req, res, next) => {
+  const { id } = req.params;
+
+  try {
+    const payment = await Payment.findOne({ _id: id });
+
+    if (!payment) {
+      throw new Error('payment not found');
+    }
+
+    res.status(200).json({
+      success: true,
+      payment,
+    });
+  } catch (error) {
+    error.status = 400;
+    next(error);
+  }
+};
+
+/**
  * @route api/payment
  * @method POST
  * @access PRIVATE
@@ -83,4 +109,5 @@ module.exports = {
   getAllPayments,
   addPayment,
   removePayment,
+  getPaymentById,
 };
