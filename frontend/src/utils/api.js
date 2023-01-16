@@ -97,6 +97,27 @@ const getTenantById = async (id) => {
   return response.data;
 };
 
+// ================== Payments ====================
+const getAllPayments = async () => {
+  const response = await axios.get('/payments/');
+  return response.data;
+};
+
+const addPayment = async (data) => {
+  const response = await axios.post('/payments', data);
+  return response.data;
+};
+
+const getPaymentById = async (id) => {
+  const response = await axios.get(`/payments/${id}`);
+  return response.data;
+};
+
+const removePayment = async (id) => {
+  const response = await axios.delete(`/payments/${id}`);
+  return response.data;
+};
+
 export {
   login,
   verify,
@@ -116,4 +137,8 @@ export {
   getTenantById,
   updateTenant,
   deleteTenant,
+  getAllPayments,
+  addPayment,
+  getPaymentById,
+  removePayment,
 };
