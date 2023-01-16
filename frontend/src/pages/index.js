@@ -8,6 +8,7 @@ import AddBuilding from './buildings/AddBuilding';
 import BuildingDetails from './buildings/BuildingDetails';
 import Apartments from './apartments/Index';
 import AddApartment from './apartments/AddApartment';
+import ApartmentDetails from './apartments/ApartmentDetails';
 
 export {
   Login,
@@ -20,4 +21,5 @@ export {
   BuildingDetails,
   Apartments,
   AddApartment,
+  ApartmentDetails,
 };

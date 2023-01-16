@@ -20,6 +20,11 @@ const getAllApartments = async () => {
   return response.data;
 };
 
+const getApartmentDetails = async (number) => {
+  const response = await axios.get(`/apartments/${number}`);
+  return response.data;
+};
+
 const addApartment = async (data) => {
   const response = await axios.post('/apartments', data);
   return response.data;
@@ -96,6 +101,7 @@ export {
   login,
   verify,
   getAllApartments,
+  getApartmentDetails,
   getApartmentsByBuildingId,
   addApartment,
   updateApartment,

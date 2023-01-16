@@ -11,6 +11,7 @@ import {
   BuildingDetails,
   Apartments,
   AddApartment,
+  ApartmentDetails,
 } from './pages';
 import NotFound from './components/NotFound';
 import AdminLayout from './layout/AdminLayout';
@@ -24,6 +25,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="apartments" element={<Apartments />} />
           <Route path="apartments/new" element={<AddApartment />} />
+          <Route path="apartments/:number" element={<ApartmentDetails />} />
           <Route path="tenants" element={<Tenants />} />
           <Route path="tenants/new" element={<AddTenant />} />
           <Route path="tenants/:id" element={<TenantDetails />} />
