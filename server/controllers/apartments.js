@@ -21,6 +21,32 @@ const getAllApartments = async (req, res, next) => {
 };
 
 /**
+ * @route /api/apartments/:number
+ * @method GET
+ * @access PRIVATE
+ * @description get an apartment by its number
+ */
+const getApartmentByNumber = async (req, res, next) => {
+  const { number } = req.params;
+
+  try {
+    const apartment = await Apartment.findOne({ number }).populate('building').populate('tenant');
+
+    if (!apartment) {
+      throw new Error('No apartment found');
+    }
+
+    res.status(200).json({
+      success: true,
+      apartment,
+    });
+  } catch (error) {
+    error.status = 404;
+    next(error);
+  }
+};
+
+/**
  * @route /api/apartments
  * @method POST
  * @access PRIVATE
@@ -145,6 +171,7 @@ const getApartmentsByBuildingId = async (req, res, next) => {
 
 module.exports = {
   getAllApartments,
+  getApartmentByNumber,
   addApartment,
   updateApartment,
   removeApartment,
