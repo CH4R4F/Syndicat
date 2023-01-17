@@ -169,6 +169,26 @@ const getApartmentsByBuildingId = async (req, res, next) => {
   }
 };
 
+/**
+ * @route /api/apartments/rented
+ * @method GET
+ * @access PRIVATE
+ * @description get all the rented apartments
+ */
+const getRentedApartments = async (req, res, next) => {
+  try {
+    const apartments = await Apartment.find({ status: 'occupied' }).populate('building').populate('tenant');
+
+    res.status(200).json({
+      success: true,
+      apartments,
+    });
+  } catch (error) {
+    error.status = 400;
+    next(error);
+  }
+};
+
 module.exports = {
   getAllApartments,
   getApartmentByNumber,
@@ -176,4 +196,5 @@ module.exports = {
   updateApartment,
   removeApartment,
   getApartmentsByBuildingId,
+  getRentedApartments,
 };
