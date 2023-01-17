@@ -15,10 +15,16 @@ const getAllPayments = async (req, res, next) => {
     payments = await Promise.all(
       payments.map(async (payment) => {
         const tenant = await Tenant.findOne({ _id: payment.apartment.tenant });
-        payment.tenant = tenant;
-        return payment;
+        return {
+          ...payment._doc,
+          tenant,
+        };
       })
     );
+
+    payments.forEach((payment) => {
+      console.log(payment.tenant);
+    });
 
     res.status(200).json({
       success: true,
@@ -63,10 +69,10 @@ const getPaymentById = async (req, res, next) => {
  * @description add new payment
  */
 const addPayment = async (req, res, next) => {
-  const { amount, date, apartment, tenant } = req.body;
+  const { amount, date, apartment } = req.body;
 
   try {
-    if (!amount || !date || !apartment || !tenant) {
+    if (!amount || !date || !apartment) {
       throw new Error('please add all required fields');
     }
 
@@ -74,7 +80,6 @@ const addPayment = async (req, res, next) => {
       amount,
       date,
       apartment,
-      tenant,
     });
     await newPayment.save();
 
