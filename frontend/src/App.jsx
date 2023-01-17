@@ -13,6 +13,7 @@ import {
   AddApartment,
   ApartmentDetails,
   Payments,
+  AddPayment,
 } from './pages';
 import NotFound from './components/NotFound';
 import AdminLayout from './layout/AdminLayout';
@@ -34,7 +35,7 @@ function App() {
           <Route path="buildings/new" element={<AddBuilding />} />
           <Route path="buildings/:id" element={<BuildingDetails />} />
           <Route path="payments" element={<Payments />} />
-          <Route path="payments/new" element={<h1>add payment</h1>} />
+          <Route path="payments/new" element={<AddPayment />} />
           <Route path="settings" element={<h1>Settings</h1>} />
         </Route>
         <Route path="*" element={<NotFound />} />

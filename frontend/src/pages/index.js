@@ -10,6 +10,7 @@ import Apartments from './apartments/Index';
 import AddApartment from './apartments/AddApartment';
 import ApartmentDetails from './apartments/ApartmentDetails';
 import Payments from './payments/Index';
+import AddPayment from './payments/addPayment';
 
 export {
   Login,
@@ -24,4 +25,5 @@ export {
   AddApartment,
   ApartmentDetails,
   Payments,
+  AddPayment,
 };
