@@ -1,7 +1,22 @@
-import React from 'react';
-import LineChart from '../components/Chart';
+import { useState, useEffect } from 'react';
+import { getStatistics } from '../utils/api';
 
 const Dashboard = () => {
+  const [stats, setStats] = useState({
+    apartments: 0,
+    buildings: 0,
+    tenants: 0,
+    payments: 0,
+  });
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getStatistics();
+      setStats(response);
+    }
+    fetchData();
+  }, []);
+
   return (
     <>
       <section>
@@ -17,34 +32,32 @@ const Dashboard = () => {
           <div className="mt-8 sm:mt-12">
             <dl className="grid grid-cols-1 gap-4 sm:grid-cols-4">
               <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
-                <dt className="order-last text-lg font-medium text-gray-500">Total Income</dt>
+                <dt className="order-last text-lg font-medium text-gray-500">Total apartments</dt>
 
-                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">$4.8m</dd>
+                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">{stats.apartments}</dd>
               </div>
 
               <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
-                <dt className="order-last text-lg font-medium text-gray-500">Total Apartments</dt>
+                <dt className="order-last text-lg font-medium text-gray-500">Total buildings</dt>
 
-                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">24</dd>
+                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">{stats.buildings}</dd>
               </div>
 
               <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
-                <dt className="order-last text-lg font-medium text-gray-500">Total Buildings</dt>
+                <dt className="order-last text-lg font-medium text-gray-500">Total tenants</dt>
 
-                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">4</dd>
+                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">{stats.tenants}</dd>
               </div>
 
               <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center">
-                <dt className="order-last text-lg font-medium text-gray-500">Total Tenants</dt>
+                <dt className="order-last text-lg font-medium text-gray-500">Total factures</dt>
 
-                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">86</dd>
+                <dd className="text-4xl font-extrabold text-blue-600 md:text-5xl">{stats.payments}</dd>
               </div>
             </dl>
           </div>
         </div>
       </section>
-
-      <LineChart data={[600, 400]} total={5399} />
     </>
   );
 };

@@ -123,6 +123,12 @@ const removePayment = async (id) => {
   return response.data;
 };
 
+// ================== Statistics ====================
+const getStatistics = async () => {
+  const response = await axios.get('/statistics/');
+  return response.data;
+};
+
 export {
   login,
   verify,
@@ -147,4 +153,5 @@ export {
   addPayment,
   getPaymentById,
   removePayment,
+  getStatistics,
 };

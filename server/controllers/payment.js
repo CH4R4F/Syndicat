@@ -14,17 +14,13 @@ const getAllPayments = async (req, res, next) => {
     // in each payment get the tenant from the apartment and add it to the payment
     payments = await Promise.all(
       payments.map(async (payment) => {
-        const tenant = await Tenant.findOne({ _id: payment.apartment.tenant });
+        const tenant = await Tenant.findOne({ _id: payment.apartment?.tenant });
         return {
           ...payment._doc,
           tenant,
         };
       })
     );
-
-    payments.forEach((payment) => {
-      console.log(payment.tenant);
-    });
 
     res.status(200).json({
       success: true,

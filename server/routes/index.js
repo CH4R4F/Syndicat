@@ -16,4 +16,7 @@ router.use('/api/tenants', protect, require('./api/tenant'));
 // api/payments
 router.use('/api/payments', protect, require('./api/payment'));
 
+// api/statistics
+router.use('/api/statistics', protect, require('./api/statistics'));
+
 module.exports = router;
