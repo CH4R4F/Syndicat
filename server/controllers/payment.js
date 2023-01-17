@@ -1,4 +1,5 @@
 const Payment = require('../models/payment');
+const Tenant = require('../models/user');
 
 /**
  * @route api/payment
@@ -8,7 +9,16 @@ const Payment = require('../models/payment');
  */
 const getAllPayments = async (req, res, next) => {
   try {
-    const payments = await Payment.find({}).populate('apartment');
+    let payments = await Payment.find({}).populate('apartment');
+
+    // in each payment get the tenant from the apartment and add it to the payment
+    payments = await Promise.all(
+      payments.map(async (payment) => {
+        const tenant = await Tenant.findOne({ _id: payment.apartment.tenant });
+        payment.tenant = tenant;
+        return payment;
+      })
+    );
 
     res.status(200).json({
       success: true,

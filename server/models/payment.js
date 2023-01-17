@@ -13,10 +13,6 @@ const paymentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Apartment',
   },
-  tenant: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-  },
 });
 
 module.exports = mongoose.model('Payment', paymentSchema);
