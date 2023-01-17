@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllPayments, removePayment } from '../../utils/api';
 import Button from '../../components/Button';
+import Print from 'react-print-components';
 
 const Payments = () => {
   const [payments, setPayments] = useState([]);
@@ -101,7 +102,46 @@ const Payments = () => {
                   </div>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <button className="text-indigo-600 hover:text-indigo-900">Download Invoice</button>
+                  <Print trigger={<button className="text-indigo-600 hover:text-indigo-900">Print</button>}>
+                    <div className="flex flex-col items-center justify-center">
+                      <h1 className="text-2xl font-bold">Payment Receipt</h1>
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full divide-y-2 divide-gray-200 text-sm">
+                          <thead>
+                            <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                              tenant name
+                            </th>
+                            <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">
+                              apartment number
+                            </th>
+                            <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">amount</th>
+                            <th className="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900">date</th>
+                          </thead>
+                          <tbody>
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                              {payment.tenant ? payment.tenant.firstName + ' ' + payment.tenant.lastName : ''}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                              {payment.apartment?.number}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                              {new Intl.NumberFormat('en-US', {
+                                style: 'currency',
+                                currency: 'USD',
+                              }).format(payment.amount)}
+                            </td>
+                            <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                              {new Date(payment.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                              })}
+                            </td>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </Print>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap text-right text-sm font-medium">
                   {/* delete button */}
