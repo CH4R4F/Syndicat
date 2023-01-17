@@ -25,6 +25,11 @@ const getApartmentDetails = async (number) => {
   return response.data;
 };
 
+const getRentedApartments = async () => {
+  const response = await axios.get('/apartments/rented');
+  return response.data;
+};
+
 const addApartment = async (data) => {
   const response = await axios.post('/apartments', data);
   return response.data;
@@ -124,6 +129,7 @@ export {
   getAllApartments,
   getApartmentDetails,
   getApartmentsByBuildingId,
+  getRentedApartments,
   addApartment,
   updateApartment,
   deleteApartment,
